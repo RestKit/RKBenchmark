@@ -28,7 +28,6 @@ typedef NS_ENUM(NSUInteger, RKBenchmarkPersistentStoreType) {
 
 @interface RKBAppDelegate ()
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, strong) RKEntityMapping *employeeMapping;
 @end
 
 @implementation RKBAppDelegate
@@ -60,7 +59,18 @@ typedef NS_ENUM(NSUInteger, RKBenchmarkPersistentStoreType) {
      @"position": @"position",
      @"salary": @"salary",
      @"termination_date": @"terminationDate"}];
-    self.employeeMapping = employeeMapping;
+    employeeMapping.identificationAttributes = @[ @"employeeID" ];
+    
+    RKEntityMapping *companyMapping = [[RKEntityMapping alloc] initWithEntity:self.managedObjectModel.entitiesByName[@"Company"]];
+    companyMapping.identificationAttributes = @[ @"companyID" ];
+    [companyMapping addAttributeMappingsFromDictionary:@{
+     @"active": @"active",
+     @"company_id": @"companyID",
+     @"founding_date": @"foundingDate",
+     @"industry": @"industry",
+     @"name": @"name",
+     @"tax_id": @"taxID",
+     @"url": @"url" }];
     
     // Execute Benchmarks
     void (^setFetchRequestCache)(RKManagedObjectImporter *) = ^(RKManagedObjectImporter *importer) {
@@ -75,39 +85,139 @@ typedef NS_ENUM(NSUInteger, RKBenchmarkPersistentStoreType) {
     void (^importFiveThousandEmployees)(RKManagedObjectImporter *) = ^(RKManagedObjectImporter *importer) {
         NSError *error = nil;
         NSUInteger count = [importer importObjectsFromItemAtPath:[[NSBundle mainBundle] pathForResource:@"employees" ofType:@"json"]
-                                                     withMapping:self.employeeMapping
+                                                     withMapping:employeeMapping
                                                          keyPath:@"employees"
                                                            error:&error];
         NSAssert(count == 5000 && error == nil, @"Import failed: %@", error);
-    };    
+        BOOL success = [importer finishImporting:&error];
+        NSAssert(success, @"Failed to finish import due to error: %@", error);
+    };
+    void (^importFiveThousandEmployeesWithNestedCompanies)(RKManagedObjectImporter *) = ^(RKManagedObjectImporter *importer) {
+        NSError *error = nil;
+        NSUInteger count = [importer importObjectsFromItemAtPath:[[NSBundle mainBundle] pathForResource:@"employees_with_nested_companies" ofType:@"json"]
+                                                     withMapping:employeeMapping
+                                                         keyPath:@"employees"
+                                                           error:&error];
+        NSAssert(count == 5000 && error == nil, @"Import failed: %@", error);
+        BOOL success = [importer finishImporting:&error];
+        NSAssert(success, @"Failed to finish import due to error: %@", error);
+    };
+    void (^importFiveThousandEmployeesWithThreeHundredAndFiftyConnectedCompanies)(RKManagedObjectImporter *) = ^(RKManagedObjectImporter *importer) {
+        NSError *error = nil;
+        NSUInteger count = [importer importObjectsFromItemAtPath:[[NSBundle mainBundle] pathForResource:@"employees_and_companies" ofType:@"json"]
+                                                     withMapping:employeeMapping
+                                                         keyPath:@"employees"
+                                                           error:&error];
+        NSAssert(count == 5000 && error == nil, @"Import of %d employees failed: %@", count, error);
+        count = [importer importObjectsFromItemAtPath:[[NSBundle mainBundle] pathForResource:@"employees_and_companies" ofType:@"json"]
+                                          withMapping:companyMapping
+                                              keyPath:@"companies"
+                                                error:&error];
+        NSAssert(count == 350 && error == nil, @"Import of %d companies failed: %@", count, error);
+        BOOL success = [importer finishImporting:&error];
+        NSAssert(success, @"Failed to finish import due to error: %@", error);
+    };
     
-    [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + Fetch Request Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
-                        configure:setFetchRequestCache
-                        benchmark:importFiveThousandEmployees];
-    [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + In Memory Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
-                        configure:setInMemoryCache
-                        benchmark:importFiveThousandEmployees];
-    [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + nil Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
-                        configure:setNilCache
-                        benchmark:importFiveThousandEmployees];
-    
-    [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + Fetch Request Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
-                        configure:setFetchRequestCache
-                        benchmark:importFiveThousandEmployees];
-    [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + In Memory Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
-                        configure:setInMemoryCache
-                        benchmark:importFiveThousandEmployees];
-    [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + nil Cache"
-              persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
-                        configure:setNilCache
-                        benchmark:importFiveThousandEmployees];
-    
-    exit(0);
+    // Benchmark on a dispatch queue for easy thread separation in Instruments
+    dispatch_queue_t benchmarkingQueue = dispatch_queue_create("org.restkit.benchmarking", NULL);
+    dispatch_async(benchmarkingQueue, ^{        
+        // Benchmark Attributes Only
+        [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployees];
+        [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployees];
+        [self benchmarkImportWithName:@"Import 5000 Employees with In Memory Store + nil Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setNilCache
+                            benchmark:importFiveThousandEmployees];
+
+        [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployees];
+        [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployees];
+        [self benchmarkImportWithName:@"Import 5000 Employees with SQLite Store + nil Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setNilCache
+                            benchmark:importFiveThousandEmployees];
+        
+        
+        // Benchmark Nested Relationships
+        [employeeMapping addRelationshipMappingWithSourceKeyPath:@"company" mapping:companyMapping];        
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via In Memory Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via In Memory Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via In Memory Store + nil Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setNilCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via SQLite Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via SQLite Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Nested Company via SQLite Store + nil Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setNilCache
+                            benchmark:importFiveThousandEmployeesWithNestedCompanies];
+        
+        // Benchmark Connected Relationships
+        // NOTE: You cannot map an object with connections with a `nil` cache
+        RKRelationshipMapping *companyMapping = [employeeMapping propertyMappingsBySourceKeyPath][@"company"];
+        [employeeMapping removePropertyMapping:companyMapping];
+        [employeeMapping addConnectionForRelationship:@"company" connectedBy:@"companyID"];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Connected Company via In Memory Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployeesWithThreeHundredAndFiftyConnectedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Connected Company via In Memory Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployeesWithThreeHundredAndFiftyConnectedCompanies];
+        
+        [self benchmarkImportWithName:@"Import 5000 Employees with Connected Company via SQLite Store + Fetch Request Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setFetchRequestCache
+                            benchmark:importFiveThousandEmployeesWithThreeHundredAndFiftyConnectedCompanies];
+        [self benchmarkImportWithName:@"Import 5000 Employees with Connected Company via SQLite Store + In Memory Cache"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeSQLite
+                            configure:setInMemoryCache
+                            benchmark:importFiveThousandEmployeesWithThreeHundredAndFiftyConnectedCompanies];
+        
+        // Benchmark Attributes w/ Modification Detection Enabled
+        employeeMapping.identificationAttributes = @[ @"employeeID" ];
+        employeeMapping.modificationKey = @"createdAt";
+        [self benchmarkImportWithName:@"Import 5000 Employees twice with In Memory Store, In Memory Cache + Modification Key"
+                  persistentStoreType:RKBenchmarkPersistentStoreTypeInMemory
+                            configure:setInMemoryCache
+                            benchmark:^(RKManagedObjectImporter *importer) {
+                                [RKBenchmark report:@"Initial Import" executionBlock:^{
+                                    importFiveThousandEmployees(importer);
+                                }];
+                                [RKBenchmark report:@"Secondary Import" executionBlock:^{
+                                    importFiveThousandEmployees(importer);
+                                }];
+                                importFiveThousandEmployees(importer);
+                            }];
+        
+        exit(0);
+    });
     return YES;
 }
 

@@ -37,6 +37,8 @@
 		25499D2E172836B6004F0FDA /* _RKBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D28172836B5004F0FDA /* _RKBEmployee.m */; };
 		25499D2F172836B6004F0FDA /* RKBCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D2A172836B6004F0FDA /* RKBCompany.m */; };
 		25499D30172836B6004F0FDA /* RKBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D2C172836B6004F0FDA /* RKBEmployee.m */; };
+		25499D3D172883F7004F0FDA /* employees_and_companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 25499D3B172883F7004F0FDA /* employees_and_companies.json */; };
+		25499D3E172883F7004F0FDA /* employees_with_nested_companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 25499D3C172883F7004F0FDA /* employees_with_nested_companies.json */; };
 		C70C120F09D6402D94DA29A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156378862EAE4CE3B6940A66 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		25499D2A172836B6004F0FDA /* RKBCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBCompany.m; sourceTree = "<group>"; };
 		25499D2B172836B6004F0FDA /* RKBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKBEmployee.h; sourceTree = "<group>"; };
 		25499D2C172836B6004F0FDA /* RKBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBEmployee.m; sourceTree = "<group>"; };
+		25499D3B172883F7004F0FDA /* employees_and_companies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = employees_and_companies.json; sourceTree = "<group>"; };
+		25499D3C172883F7004F0FDA /* employees_with_nested_companies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = employees_with_nested_companies.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 		25499D21172831C7004F0FDA /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				25499D3B172883F7004F0FDA /* employees_and_companies.json */,
+				25499D3C172883F7004F0FDA /* employees_with_nested_companies.json */,
 				25499D22172831C7004F0FDA /* employees.json */,
 			);
 			path = JSON;
@@ -225,6 +231,8 @@
 				25499D1017281C56004F0FDA /* Default@2x.png in Resources */,
 				25499D1217281C56004F0FDA /* Default-568h@2x.png in Resources */,
 				25499D23172831C7004F0FDA /* employees.json in Resources */,
+				25499D3D172883F7004F0FDA /* employees_and_companies.json in Resources */,
+				25499D3E172883F7004F0FDA /* employees_with_nested_companies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
