@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		25499D1B172825B9004F0FDA /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 25499D1C172825B9004F0FDA /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				25499D1F172825C1004F0FDA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		25499CFA17281C55004F0FDA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499CF917281C55004F0FDA /* UIKit.framework */; };
+		25499CFC17281C55004F0FDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499CFB17281C55004F0FDA /* Foundation.framework */; };
+		25499CFE17281C55004F0FDA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499CFD17281C55004F0FDA /* CoreGraphics.framework */; };
+		25499D0017281C55004F0FDA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499CFF17281C55004F0FDA /* CoreData.framework */; };
+		25499D0617281C55004F0FDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25499D0417281C55004F0FDA /* InfoPlist.strings */; };
+		25499D0817281C55004F0FDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D0717281C55004F0FDA /* main.m */; };
+		25499D0C17281C55004F0FDA /* RKBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D0B17281C55004F0FDA /* RKBAppDelegate.m */; };
+		25499D0E17281C55004F0FDA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 25499D0D17281C55004F0FDA /* Default.png */; };
+		25499D1017281C56004F0FDA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25499D0F17281C56004F0FDA /* Default@2x.png */; };
+		25499D1217281C56004F0FDA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25499D1117281C56004F0FDA /* Default-568h@2x.png */; };
+		25499D1517281C56004F0FDA /* RKBenchmark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25499D1317281C56004F0FDA /* RKBenchmark.xcdatamodeld */; };
+		25499D23172831C7004F0FDA /* employees.json in Resources */ = {isa = PBXBuildFile; fileRef = 25499D22172831C7004F0FDA /* employees.json */; };
+		25499D2D172836B6004F0FDA /* _RKBCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D26172836B5004F0FDA /* _RKBCompany.m */; };
+		25499D2E172836B6004F0FDA /* _RKBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D28172836B5004F0FDA /* _RKBEmployee.m */; };
+		25499D2F172836B6004F0FDA /* RKBCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D2A172836B6004F0FDA /* RKBCompany.m */; };
+		25499D30172836B6004F0FDA /* RKBEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 25499D2C172836B6004F0FDA /* RKBEmployee.m */; };
+		C70C120F09D6402D94DA29A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156378862EAE4CE3B6940A66 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		156378862EAE4CE3B6940A66 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		180B4B23A7114248A97BB2C8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		25499CF617281C55004F0FDA /* RKBenchmark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RKBenchmark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25499CF917281C55004F0FDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		25499CFB17281C55004F0FDA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		25499CFD17281C55004F0FDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		25499CFF17281C55004F0FDA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		25499D0317281C55004F0FDA /* RKBenchmark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RKBenchmark-Info.plist"; sourceTree = "<group>"; };
+		25499D0517281C55004F0FDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		25499D0717281C55004F0FDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		25499D0917281C55004F0FDA /* RKBenchmark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKBenchmark-Prefix.pch"; sourceTree = "<group>"; };
+		25499D0A17281C55004F0FDA /* RKBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKBAppDelegate.h; sourceTree = "<group>"; };
+		25499D0B17281C55004F0FDA /* RKBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKBAppDelegate.m; sourceTree = "<group>"; };
+		25499D0D17281C55004F0FDA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		25499D0F17281C56004F0FDA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		25499D1117281C56004F0FDA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		25499D1417281C56004F0FDA /* RKBenchmark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RKBenchmark.xcdatamodel; sourceTree = "<group>"; };
+		25499D22172831C7004F0FDA /* employees.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = employees.json; sourceTree = "<group>"; };
+		25499D25172836B5004F0FDA /* _RKBCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RKBCompany.h; sourceTree = "<group>"; };
+		25499D26172836B5004F0FDA /* _RKBCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RKBCompany.m; sourceTree = "<group>"; };
+		25499D27172836B5004F0FDA /* _RKBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RKBEmployee.h; sourceTree = "<group>"; };
+		25499D28172836B5004F0FDA /* _RKBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RKBEmployee.m; sourceTree = "<group>"; };
+		25499D29172836B5004F0FDA /* RKBCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKBCompany.h; sourceTree = "<group>"; };
+		25499D2A172836B6004F0FDA /* RKBCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBCompany.m; sourceTree = "<group>"; };
+		25499D2B172836B6004F0FDA /* RKBEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKBEmployee.h; sourceTree = "<group>"; };
+		25499D2C172836B6004F0FDA /* RKBEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBEmployee.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25499CF317281C55004F0FDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25499CFA17281C55004F0FDA /* UIKit.framework in Frameworks */,
+				25499CFC17281C55004F0FDA /* Foundation.framework in Frameworks */,
+				25499CFE17281C55004F0FDA /* CoreGraphics.framework in Frameworks */,
+				25499D0017281C55004F0FDA /* CoreData.framework in Frameworks */,
+				C70C120F09D6402D94DA29A0 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25499CED17281C55004F0FDA = {
+			isa = PBXGroup;
+			children = (
+				25499D0117281C55004F0FDA /* RKBenchmark */,
+				25499D21172831C7004F0FDA /* JSON */,
+				25499CF817281C55004F0FDA /* Frameworks */,
+				25499CF717281C55004F0FDA /* Products */,
+				180B4B23A7114248A97BB2C8 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		25499CF717281C55004F0FDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25499CF617281C55004F0FDA /* RKBenchmark.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25499CF817281C55004F0FDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25499CF917281C55004F0FDA /* UIKit.framework */,
+				25499CFB17281C55004F0FDA /* Foundation.framework */,
+				25499CFD17281C55004F0FDA /* CoreGraphics.framework */,
+				25499CFF17281C55004F0FDA /* CoreData.framework */,
+				156378862EAE4CE3B6940A66 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25499D0117281C55004F0FDA /* RKBenchmark */ = {
+			isa = PBXGroup;
+			children = (
+				25499D24172836B5004F0FDA /* Mogenerator */,
+				25499D29172836B5004F0FDA /* RKBCompany.h */,
+				25499D2A172836B6004F0FDA /* RKBCompany.m */,
+				25499D2B172836B6004F0FDA /* RKBEmployee.h */,
+				25499D2C172836B6004F0FDA /* RKBEmployee.m */,
+				25499D0A17281C55004F0FDA /* RKBAppDelegate.h */,
+				25499D0B17281C55004F0FDA /* RKBAppDelegate.m */,
+				25499D1317281C56004F0FDA /* RKBenchmark.xcdatamodeld */,
+				25499D0217281C55004F0FDA /* Supporting Files */,
+			);
+			path = RKBenchmark;
+			sourceTree = "<group>";
+		};
+		25499D0217281C55004F0FDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				25499D0317281C55004F0FDA /* RKBenchmark-Info.plist */,
+				25499D0417281C55004F0FDA /* InfoPlist.strings */,
+				25499D0717281C55004F0FDA /* main.m */,
+				25499D0917281C55004F0FDA /* RKBenchmark-Prefix.pch */,
+				25499D0D17281C55004F0FDA /* Default.png */,
+				25499D0F17281C56004F0FDA /* Default@2x.png */,
+				25499D1117281C56004F0FDA /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25499D21172831C7004F0FDA /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				25499D22172831C7004F0FDA /* employees.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		25499D24172836B5004F0FDA /* Mogenerator */ = {
+			isa = PBXGroup;
+			children = (
+				25499D25172836B5004F0FDA /* _RKBCompany.h */,
+				25499D26172836B5004F0FDA /* _RKBCompany.m */,
+				25499D27172836B5004F0FDA /* _RKBEmployee.h */,
+				25499D28172836B5004F0FDA /* _RKBEmployee.m */,
+			);
+			path = Mogenerator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25499CF517281C55004F0FDA /* RKBenchmark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25499D1817281C56004F0FDA /* Build configuration list for PBXNativeTarget "RKBenchmark" */;
+			buildPhases = (
+				3B5F5C48AC83490693E46CB6 /* Check Pods Manifest.lock */,
+				25499CF217281C55004F0FDA /* Sources */,
+				25499CF317281C55004F0FDA /* Frameworks */,
+				25499CF417281C55004F0FDA /* Resources */,
+				5C189F7FDC7842B992AFAD12 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RKBenchmark;
+			productName = RKBenchmark;
+			productReference = 25499CF617281C55004F0FDA /* RKBenchmark.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25499CEE17281C55004F0FDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RKB;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = RestKit;
+			};
+			buildConfigurationList = 25499CF117281C55004F0FDA /* Build configuration list for PBXProject "RKBenchmark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 25499CED17281C55004F0FDA;
+			productRefGroup = 25499CF717281C55004F0FDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25499CF517281C55004F0FDA /* RKBenchmark */,
+				25499D1B172825B9004F0FDA /* Mogenerator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25499CF417281C55004F0FDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25499D0617281C55004F0FDA /* InfoPlist.strings in Resources */,
+				25499D0E17281C55004F0FDA /* Default.png in Resources */,
+				25499D1017281C56004F0FDA /* Default@2x.png in Resources */,
+				25499D1217281C56004F0FDA /* Default-568h@2x.png in Resources */,
+				25499D23172831C7004F0FDA /* employees.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25499D1F172825C1004F0FDA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Variables\nDATA_MODEL_PACKAGE=RKBenchmark/RKBenchmark.xcdatamodeld\nCURRENT_VERSION=`/usr/libexec/PlistBuddy \"$DATA_MODEL_PACKAGE/.xccurrentversion\" -c 'print _XCCurrentVersionName'`\nMACHINE_DIR=RKBenchmark/Mogenerator\nHUMAN_DIR=RKBenchmark/\n\n# Generate mogenerator files\n/usr/local/bin/mogenerator \\\n--model \"$DATA_MODEL_PACKAGE/$CURRENT_VERSION\" \\\n--machine-dir $MACHINE_DIR \\\n--human-dir $HUMAN_DIR \\\n--template-var arc=true\n\n# Replace all tabs with spaces\n/usr/bin/sed -i '' 's/\t/    /g' \\\n`find $MACHINE_DIR -type f`\n\n# Remove all trailing spaces\n/usr/bin/sed -i '' -E 's/[[:space:]]*$//' \\\n`find $MACHINE_DIR -type f`";
+		};
+		3B5F5C48AC83490693E46CB6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		5C189F7FDC7842B992AFAD12 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25499CF217281C55004F0FDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25499D0817281C55004F0FDA /* main.m in Sources */,
+				25499D0C17281C55004F0FDA /* RKBAppDelegate.m in Sources */,
+				25499D1517281C56004F0FDA /* RKBenchmark.xcdatamodeld in Sources */,
+				25499D2D172836B6004F0FDA /* _RKBCompany.m in Sources */,
+				25499D2E172836B6004F0FDA /* _RKBEmployee.m in Sources */,
+				25499D2F172836B6004F0FDA /* RKBCompany.m in Sources */,
+				25499D30172836B6004F0FDA /* RKBEmployee.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		25499D0417281C55004F0FDA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25499D0517281C55004F0FDA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		25499D1617281C56004F0FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		25499D1717281C56004F0FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25499D1917281C56004F0FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180B4B23A7114248A97BB2C8 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKBenchmark/RKBenchmark-Prefix.pch";
+				INFOPLIST_FILE = "RKBenchmark/RKBenchmark-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		25499D1A17281C56004F0FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180B4B23A7114248A97BB2C8 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RKBenchmark/RKBenchmark-Prefix.pch";
+				INFOPLIST_FILE = "RKBenchmark/RKBenchmark-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		25499D1D172825B9004F0FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		25499D1E172825B9004F0FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25499CF117281C55004F0FDA /* Build configuration list for PBXProject "RKBenchmark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25499D1617281C56004F0FDA /* Debug */,
+				25499D1717281C56004F0FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25499D1817281C56004F0FDA /* Build configuration list for PBXNativeTarget "RKBenchmark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25499D1917281C56004F0FDA /* Debug */,
+				25499D1A17281C56004F0FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25499D1C172825B9004F0FDA /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25499D1D172825B9004F0FDA /* Debug */,
+				25499D1E172825B9004F0FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		25499D1317281C56004F0FDA /* RKBenchmark.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				25499D1417281C56004F0FDA /* RKBenchmark.xcdatamodel */,
+			);
+			currentVersion = 25499D1417281C56004F0FDA /* RKBenchmark.xcdatamodel */;
+			path = RKBenchmark.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 25499CEE17281C55004F0FDA /* Project object */;
+}

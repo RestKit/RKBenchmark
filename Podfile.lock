@@ -1,0 +1,34 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - RestKit/Core (0.20.1dev):
+    - RestKit/CoreData
+    - RestKit/Network
+    - RestKit/ObjectMapping
+  - RestKit/CoreData (0.20.1dev)
+  - RestKit/Network (0.20.1dev):
+    - AFNetworking (~> 1.2.0)
+    - RestKit/ObjectMapping
+    - RestKit/Support
+    - SOCKit
+  - RestKit/ObjectMapping (0.20.1dev)
+  - RestKit/Support (0.20.1dev):
+    - TransitionKit (= 1.1.0)
+  - RestKit/Testing (0.20.1dev)
+  - SOCKit (1.1)
+  - TransitionKit (1.1.0)
+
+DEPENDENCIES:
+  - RestKit/Core (from `RestKit`)
+  - RestKit/Testing (from `RestKit`)
+
+EXTERNAL SOURCES:
+  RestKit:
+    :local: RestKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 616da0028916ce296f5c3cef74e5552eb4e10e13
+  RestKit: 1ecd173c7cc8ea2b37c22b9909d5dde225331378
+  SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
+  TransitionKit: 1624e84f252d5cd26900be28ccb73c69fbe63f8a
+
+COCOAPODS: 0.18.1
