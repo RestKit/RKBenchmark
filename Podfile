@@ -1,4 +1,4 @@
 platform :ios, '6.0'
 
-pod 'RestKit/Core', :local => 'RestKit'
-pod 'RestKit/Testing', :local => 'RestKit'
+pod 'RestKit/Core', :path => 'RestKit'
+pod 'RestKit/Testing', :path => 'RestKit'
